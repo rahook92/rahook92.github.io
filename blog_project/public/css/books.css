@@ -1,0 +1,111 @@
+/* * {
+    border: 1px black dotted;
+} */
+.col-3 {
+    height: 100vh;
+}
+.col-9 {
+    height: 100vh;
+}
+.dropdown-menu {
+    display: inline;
+}
+.list-group {
+    width: 50%;
+}
+.active {
+    background-color: rgb(4, 158, 158);
+    color: white;
+}
+.book-display-header {
+    text-align: center;
+    padding: 2em;
+}
+.book-display-header-text{
+    display: inline;
+    padding: 0 2%;
+    background-color: rgba(15, 109, 109, 0.801);
+    color: white;
+    border-radius: 2px;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.342);
+    font-weight: 600;
+}
+.widen {
+    animation-name: widen;
+    animation-duration: .5s;
+    animation-direction: linear;
+    animation-fill-mode: forwards;
+}
+@keyframes widen {
+    0% {
+        letter-spacing: 0px;
+    }
+    100% {
+        letter-spacing: 4px;
+    }
+}
+.book-col {
+    padding: 20px;
+}
+.book {
+    display: block;
+    width: 150px;
+    height: 230px;
+    margin: auto;
+}
+.book-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.book-author{
+    color:rgb(4, 158, 158);
+    font-size: 13px;
+    text-align: center;
+}
+.book-tag {
+    font-size: 12px;
+    text-align: center;
+}
+.nav {
+    background-color: black;
+}
+.nav li {
+    width: 12%;
+    text-align: center;
+}
+.nav li a {
+    color: white;
+}
+.blurb {
+    display: none;
+    height: 400px;
+}
+.blurb p {
+    margin-top: 20px;
+}
+span {
+    margin: 0 20px;
+}
+.selected {
+    width: 175px;
+    height: 250px;
+    margin-top: 10px;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.198);
+    animation: enlarge .1s linear forwards;
+}
+@keyframes enlarge {
+    0% {
+        width: 150px;
+        height: 230px; 
+    }
+    100% {
+        width: 175px;
+        height: 250px;
+    }
+}
+.not-selected {
+    width: 135px;
+    height: 210px;
+    opacity: 0.5;
+}

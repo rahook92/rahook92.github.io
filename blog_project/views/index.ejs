@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/index.css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">  
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+<!-- Banner -->
+        <div class='full-banner mt-2'>
+            <p class='banner-message'>This Will Be</p>
+            <div class='row banner-row-1 mx-auto'>
+            </div>
+            <p class='banner-message'>Some Epic</p>
+            <div class='row banner-row-2 mx-auto'>
+            </div>
+            <p class='banner-message'>Banner Text</p>
+            <div class='row banner-row-3 mx-auto'>
+            </div>
+        </div>
+        <div class='row'>
+            <form class="form-inline">
+                <input class="form-control ml-3 mt-2 mb-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success ml-2 mt-2 mb-2" type="submit">Search</button>
+              </form>
+        </div>
+
+<!-- Posts -->
+
+<% posts.forEach((post)=>{ %>
+        <div class='post'>
+            <div class='row'>
+                <div class='col-10 title-bar mx-auto'>
+                    <h6><%= post.date.split(' ').splice(1,3).join(' ') %></h6>
+                    <h1 class='float-right' id='post-title'><%= post.title %></h1>
+                    <ul class='list-inline tags'>
+                    <% post.tags.forEach((tag)=>{ %>
+                        <li class='list-inline-item'><a href='#'><%= tag %></a></li>
+                    <% }) %>
+                    </ul>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-10 post-content mx-auto'>
+
+                <%  post.contents.forEach((content)=>{ %>
+
+                    <% for(var i = 0; i < content.paragraphs.length; i++){ %>
+
+                        <p><%= content.paragraphs[i] %></p>
+
+                        <% if(content.headers[i]){ %>
+                            <h3 class='font-weight-bolder'><%= content.headers[i] %></h3>
+                        <% } %>
+                        
+                        <% if(content.images[i]){ %>
+                            <img class='<%= content.images[i].class[i] %>' src='<%= content.images[i].url[i] %>'>
+                        <% } %>
+
+                    <% } %>
+
+                <% }) %>
+                    
+                </div>
+            </div>
+        </div>
+    <%  }) %>
+    </div>
+
+<!-- Navbar -->
+<ul class='nav shadow-sm fixed-bottom justify-content-center'>
+    <li class='nav-item'>
+        <a class='nav-link' href='/'>Home</a>
+    </li>
+    <li class='nav-item'>
+        <a class='nav-link books' href='/books'>Books</a>
+    </li>
+    <li class='nav-item'>
+        <a class='nav-link' href='#'>Projects</a>
+    </li>
+    <li class='nav-item'>
+        <a class='nav-link' href='/bio'>Bio</a>
+    </li>
+</ul>
+
+    <script src='../JS/index.js'></script>
+</body>
+</html>

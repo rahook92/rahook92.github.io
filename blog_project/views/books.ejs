@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/books.css'>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class='display-4 ml-2'>What I'm Reading..</h1>
+
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-3 menu-column'>
+                <h3 class='mt-5'>Browse</h3>
+                <div class='list-group mt-4'>
+                    <div class='list-item p-2 text-center active'>Recent</div>
+                    <div class='list-item p-2 text-center'>Philosophy</div>
+                    <div class='list-item p-2 text-center'>Psychology</div>
+                    <div class='list-item p-2 text-center'>History</div>
+                </div>
+            </div>
+            <div class='col-9'>
+                <div class='row'>
+                    <div class='col book-display-header'>
+                        <h1 class='book-display-header-text'>Recent</h1>
+                    </div>
+                </div>
+                <div class='row book-display'>
+
+                <% books.forEach((book)=>{ %>
+
+                    <div class='col book-col'>
+                        <img class='book' src='<%= book.image %>'>
+                        <h4 class='book-title'><%= book.title %></h4>
+                        <p class='book-author'><%= book.author %></p>
+                    </div>
+
+                <% }) %>
+
+                    <div class='col-12 blurb'>
+                        <div class='display-4' id='title'></div>
+                        <span id='author'>Author</span><img src="https://img.icons8.com/small/6/000000/filled-circle.png"><span id='publish-date'>Date</span><img src="https://img.icons8.com/small/6/000000/filled-circle.png"><span id='publisher'>Publisher</span><img src="https://img.icons8.com/small/6/000000/filled-circle.png"><span id='category'>Category</span>
+                        <p id='blurb-description'>
+                            Blurb Text
+                        </p>
+                    </div>
+                </div>
+                <div class='row'>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!-- Bottom Nav -->
+        <ul class='nav shadow-sm fixed-bottom justify-content-center'>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/'>Home</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link books' href='/books'>Books</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='#'>Projects</a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/bio'>Bio</a>
+                </li>
+            </ul>
+
+
+    <script src='JS/books.js'></script>
+</body>
+</html>
