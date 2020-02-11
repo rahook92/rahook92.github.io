@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/addPosts.css'>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 class='display-5'>Add a Post</h1>
+
+        <div class='container'>
+            <form id='post-form' action='/addPosts' method="POST">
+                <div class='form-group title-group'>
+                    <label>Post-Title</label>
+                    <input type='text' class='form-control title' name='title'>     
+                </div>
+                <div class='form-group tag-group'>
+                    <label>Tag</label>
+                    <input type='text' class='form-control tags' name='tag'> 
+                </div>
+                <div><img class='plus add-tag' src='https://img.icons8.com/pastel-glyph/20/000000/plus.png'>
+                    <p>Add a Tag</p>
+                </div>
+                <div>
+                    <img class='plus' id='add-section' src="https://img.icons8.com/pastel-glyph/20/000000/plus.png">
+                    <p>Add a Section</p> 
+                </div>
+                <button type='submit' value='submit'>Submit</button>
+            </form>
+        </div>
+        <!-- <form action="/addPosts" method='POST'>
+            <div class='form-group title-group'>
+                <label>Post-Title</label>
+                <input type='text' class='form-control title' name='title'>     
+            </div>
+            <div class='form-group header-group'>
+                <label>Header</label> 
+                <input type='text' class='form-control headers' name='headers'>     
+            </div> 
+            <div class='form-group content-group'>
+                <label>Content</label>
+                <textarea rows='6' cols='70' class='form-control contents' name='content'></textarea>     
+            </div>
+            <input type='button' class='add-more-forms' id='add-more-content' value='add content'> 
+            <div class='form-group image-group'>
+                <label>Image</label>
+                <input type='text' class='form-control images' name='image'>
+                <label for='image_class'>Class</label>
+                <input type='text' class='form-control images' id='image_class' name='image_class'>     
+            </div>
+            <input type='button' class='add-more-forms' id='add-more-images' value='add image'> 
+            <div class='form-group tag-group'>
+                <label>Tag</label>
+                <input type='text' class='form-control tags' name='tag'> 
+            </div>
+            <input type='button' class='add-more-forms' id='add-more-tags' value='add tag'>  
+            <button type='submit' value='submit'>Submit</button>
+        </form> -->
+
+        <script>
+            var postForm = document.querySelector('#post-form');
+            var addSection = document.querySelector('#add-section');
+            var addHeader = Array.from(document.querySelectorAll('.add-header'));
+            var addParagraph = Array.from(document.querySelectorAll('.add-paragraph'));
+            var addImage = Array.from(document.querySelectorAll('.add-image'));
+            var addTag = document.querySelector('.add-tag');
+
+            addTag.addEventListener('click', ()=>{
+                addTag.insertAdjacentHTML('beforebegin', 
+                    "<div class='form-group tag-group'>\
+                    <label>Tag</label>\
+                    <input type='text' class='form-control tags' name='tag'>\
+                    </div>" );
+            });
+
+            addSection.addEventListener('click', ()=>{
+
+                postForm.insertAdjacentHTML('beforeend', 
+                    "<div class='section'>\
+                    <h1>Section</h1>\
+                    <div><img class='plus add-header' src='https://img.icons8.com/pastel-glyph/20/000000/plus.png'><p>Add a Header</p></div>\
+                    <div><img class='plus add-paragraph' src='https://img.icons8.com/pastel-glyph/20/000000/plus.png'><p>Add a Paragraph</p></div>\
+                    <div><img class='plus add-image' src='https://img.icons8.com/pastel-glyph/20/000000/plus.png'><p>Add an Image</p></div>\
+                    </div>" );
+                
+                addHeader = Array.from(document.querySelectorAll('.add-header'));
+                headerAdd();
+                addParagraph = Array.from(document.querySelectorAll('.add-paragraph'));
+                paragraphAdd();
+                addImage = Array.from(document.querySelectorAll('.add-image'));
+                imageAdd();
+
+            })
+
+            function headerAdd(){
+                addHeader.forEach((header)=>{
+                header.addEventListener('click', function(){
+                    this.insertAdjacentHTML('beforebegin', '<div class="form-group header-group"><label>Header</label><input type="text" class="form-control headers" name="headers"></div>');
+                    })
+                })
+            }
+
+            function paragraphAdd(){
+                addParagraph.forEach((paragraph)=>{
+                    paragraph.addEventListener('click', function(){
+                        this.insertAdjacentHTML('beforebegin', '<div class="form-group content-group"><label>Content</label><textarea rows="6" cols="70" class="form-control contents" name="content"></textarea></div>')
+                    })
+                })
+            }
+            
+            function imageAdd(){
+                addImage.forEach((image)=>{
+                    image.addEventListener('click', function(){
+                        this.insertAdjacentHTML('beforebegin', "<div class='form-group image-group'><label>Image</label><input type='text' class='form-control images' name='image'><label for='image_class'>Class</label><input type='text' class='form-control images' id='image_class' name='image_class'></div>")
+                    })
+                })
+            }
+
+
+        </script>
+
+</body>
+</html>

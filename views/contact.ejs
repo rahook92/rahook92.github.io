@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/contact.css'>
+    <title>Contact</title>
+    <script>
+        function submitEmailForm(form){
+            e.preventDefault();
+            // var obj = new XMLHttpRequest;
+            // obj.onreadystatechange = function(){
+            //     if(obj.readyState == 4){
+            //         if(obj.status == 200){
+            //             var x = JSON.parse(obj.responseText);
+            //         } else {
+            //             alert('wrong!');
+            //         }
+            //     }
+            alert('does not work at the moment, friend.');
+            };
+            obj.open('post', form.action, true);
+            obj.setRequestHeader("content-type", 'application/json');
+            console.log(form.messageInput.value);
+            obj.send(JSON.stringify({email: form.email.value, message: form.messageInput.value}));
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <h1>Contact</h1>
+    <div class='form-group d-flex justify-content-center' id='contact'>
+        <form action="/ajax/email" method='post' onsubmit="return submitEmailForm(this);">
+                <label for='email-input'>Email Address</label>
+                <input type='email' name='email' class='form-control' id='email-input'>
+                <label for='messageInput'>Message</label>
+                <textarea name="messageInput" class='form-control' id="message-input" cols="30" rows="9"></textarea>
+                <button type='submit' name='submit' id='send-btn' class='btn btn-primary'>Send</button>
+        </form>
+    </div>
+    <ul class='nav shadow-sm fixed-bottom justify-content-center'>
+        <li class='nav-item'>
+            <a class='nav-link' href='/'>Home</a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-link books' href='/books'>Books</a>
+        </li>
+        <li class='nav-item'>
+            <a class='nav-link' href='/contact'>Contact</a>
+        </li>
+    </ul>
+</body>
+</html>
